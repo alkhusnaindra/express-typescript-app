@@ -28,7 +28,7 @@ export class PostController {
   }
 
   async get(req: Request, res: Response): Promise<Response> {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const post = await this.getPost.execute(id);
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
@@ -42,7 +42,7 @@ export class PostController {
   }
 
   async update(req: Request, res: Response): Promise<Response> {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const post = await this.updatePost.execute(id, req.body);
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
@@ -51,7 +51,7 @@ export class PostController {
   }
 
   async delete(req: Request, res: Response): Promise<Response> {
-    const { id } = req.params;
+    const id = req.params.id as string;
     await this.deletePost.execute(id);
     return res.status(204).send();
   }

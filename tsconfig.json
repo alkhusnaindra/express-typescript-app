@@ -5,6 +5,11 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
-    "strict": true
-  }
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@prisma/client": ["src/generated/prisma"]
+    }
+  },
+  "exclude": ["prisma.config.ts"]
 }

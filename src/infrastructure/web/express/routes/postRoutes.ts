@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import { PostController } from '../controllers/PostController';
-import { InMemoryPostRepository } from '../../../persistence/InMemoryPostRepository';
+import { PrismaClient } from '../../../generated/prisma';
+import { PrismaPostRepository } from '../../persistence/PrismaPostRepository';
 
-const postRepository = new InMemoryPostRepository();
+const prisma = new PrismaClient();
+const postRepository = new PrismaPostRepository(prisma);
 const postController = new PostController(postRepository);
 
 const router = Router();

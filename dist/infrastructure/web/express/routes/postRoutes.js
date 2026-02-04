@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const PostController_1 = require("../controllers/PostController");
+const prisma_1 = require("../../../../generated/prisma");
+const PrismaPostRepository_1 = require("../../persistence/PrismaPostRepository");
+const prisma = new prisma_1.PrismaClient();
+const postRepository = new PrismaPostRepository_1.PrismaPostRepository(prisma);
+const postController = new PostController_1.PostController(postRepository);
+const router = (0, express_1.Router)();
+router.post('/posts', (req, res) => postController.create(req, res));
+router.get('/posts/:id', (req, res) => postController.get(req, res));
+router.get('/posts', (req, res) => postController.getAll(req, res));
+router.put('/posts/:id', (req, res) => postController.update(req, res));
+router.delete('/posts/:id', (req, res) => postController.delete(req, res));
+exports.default = router;
