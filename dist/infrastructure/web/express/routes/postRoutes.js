@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const PostController_1 = require("../controllers/PostController");
-const prisma_1 = require("../../../../generated/prisma");
+const prisma_1 = require("../../../generated/prisma");
 const PrismaPostRepository_1 = require("../../persistence/PrismaPostRepository");
 const prisma = new prisma_1.PrismaClient();
 const postRepository = new PrismaPostRepository_1.PrismaPostRepository(prisma);

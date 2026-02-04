@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { PostController } from '../controllers/PostController';
-import { PrismaClient } from '../../../generated/prisma';
-import { PrismaPostRepository } from '../../persistence/PrismaPostRepository';
+import { PrismaClient } from '../../../../generated/prisma';
+import { PrismaPostRepository } from '../../../persistence/PrismaPostRepository';
 
 const prisma = new PrismaClient();
 const postRepository = new PrismaPostRepository(prisma);
